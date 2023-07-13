@@ -1,3 +1,9 @@
-body {
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
   background-color: blanchedalmond;
+  margin: 40px;
 }

@@ -1,0 +1,9 @@
+@use "src/variables.scss";
+
+.topbar {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  background-color: variables.$navbar;
+}

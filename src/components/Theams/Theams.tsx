@@ -1,9 +1,10 @@
+import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import "./Theams.scss";
 
 export const Theams = () => {
   return (
     <div>
-      <div></div>
+      <DefaultLayout children={<div>theams</div>}></DefaultLayout>
     </div>
   );
 };
