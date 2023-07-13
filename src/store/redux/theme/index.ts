@@ -18,16 +18,16 @@ export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    themeChange: (state) => {
+    getTheme: (state) => state,
+    changeTheme: (state) => {
       if (state.color === Color.LIGHT) {
         state.color = Color.DARK;
       } else if (state.color === Color.DARK) {
         state.color = Color.LIGHT;
       }
+      return state;
     },
   },
 });
 
-export default combineReducers({
-  switchTheme: themeSlice.reducer,
-});
+export default themeSlice.reducer;
