@@ -6,12 +6,12 @@ body {
 
 .App {
   background-color: variables.$lightTheme;
-  height: 100vh;
+  height: 100%;
   color: black;
 }
 
 .DarkApp {
   background-color: variables.$darkTheme;
-  height: 100vh;
+  height: 100%;
   color: white;
 }
