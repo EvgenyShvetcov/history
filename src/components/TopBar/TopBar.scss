@@ -1,9 +1,18 @@
 @use "src/variables.scss";
 
 .topbar {
+  height: 60px;
   display: flex;
   position: fixed;
+  align-items: center;
   width: 100%;
   left: 0;
   background-color: variables.$navbar;
+  border: 1px black solid;
+}
+
+.topbarPart {
+  margin-left: 50px;
+  text-decoration: none;
+  color: blanchedalmond;
 }

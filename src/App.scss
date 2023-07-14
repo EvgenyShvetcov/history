@@ -1,3 +1,17 @@
-$black-theme: #000000;
-$white-theme: #fff;
-$navbar: #b37474;
+@use "./variables.scss";
+
+body {
+  margin: 0;
+}
+
+.App {
+  background-color: variables.$lightTheme;
+  height: 100vh;
+  color: black;
+}
+
+.DarkApp {
+  background-color: variables.$darkTheme;
+  height: 100vh;
+  color: white;
+}

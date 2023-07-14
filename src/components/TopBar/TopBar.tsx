@@ -1,17 +1,26 @@
 import { Switch } from "@mui/material";
 import "./TopBar.scss";
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Color, themeSlice } from "../../store/redux/theme";
+
+import { useDispatch } from "react-redux";
+import { themeSlice } from "../../store/redux/theme";
+import { Link } from "react-router-dom";
 
 export const TopBar = () => {
-  const currentTheme = useSelector(themeSlice.actions.getTheme);
   const dispatch = useDispatch();
 
   return (
     <div className="topbar">
-      <div>Menu</div>
-      <Switch onChange={() => dispatch(themeSlice.actions.changeTheme)} />
+      <Link to="/theams" className="topbarPart">
+        Разделы
+      </Link>
+      <div className="topbarPart">
+        Тёмная тема :
+        <Switch
+          onChange={() => {
+            dispatch(themeSlice.actions.changeTheme());
+          }}
+        />
+      </div>
     </div>
   );
 };
