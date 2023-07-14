@@ -3,19 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage";
 import { Theams } from "./components/Theams/Theams";
 import { ROUTES } from "./routes";
-import { useMemo } from "react";
 import { useSelector } from "react-redux";
-import { themeSlice } from "./store/redux/theme";
+import { RootState } from "./store";
 
 export const App = () => {
-  const currentTheme = useSelector(themeSlice.actions.getTheme);
-
-  const theme = useMemo(() => {
-    currentTheme.payload;
-  }, [currentTheme]);
+  const currentTheme = useSelector((state: RootState) => state.theme);
 
   return (
-    <div>
+    <div className={currentTheme === true ? "DarkApp" : "App"}>
       <Routes>
         <Route path={ROUTES.home} element={<MainPage />} />
         <Route path={ROUTES.theams} element={<Theams />} />
