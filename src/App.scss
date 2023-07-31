@@ -1,17 +1,21 @@
 @use "./variables.scss";
 
-body {
-  margin: 0;
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 .App {
+  @extend body;
   background-color: variables.$lightTheme;
-  height: 100%;
   color: black;
 }
 
 .DarkApp {
+  @extend body;
   background-color: variables.$darkTheme;
-  height: 100%;
   color: white;
 }

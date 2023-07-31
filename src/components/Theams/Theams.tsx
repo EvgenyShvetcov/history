@@ -4,8 +4,10 @@ import "./Theams.scss";
 
 export const Theams = () => {
   const theams = [
-    { topicName: "Россия", discription: "Тут будет описание ..." },
-    { topicName: "Китай", discription: "Тут будет описание ..." },
+    { topicName: "Россия", discription: "Тут будет описание ...", picUrl: "" },
+    { topicName: "Китай", discription: "Тут будет описание ...", picUrl: "" },
+    { topicName: "Турция", discription: "Тут будет описание ...", picUrl: "" },
+    { topicName: "Франция", discription: "Тут будет описание ...", picUrl: "" },
   ];
   return (
     <div>
@@ -19,6 +21,7 @@ export const Theams = () => {
                   key={el.topicName}
                   topicName={el.topicName}
                   discription={el.discription}
+                  url={el.picUrl}
                 />
               ))}
             </div>
