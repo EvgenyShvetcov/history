@@ -6,8 +6,6 @@ export const Theams = () => {
   const theams = [
     { topicName: "Россия", discription: "Тут будет описание ...", picUrl: "" },
     { topicName: "Китай", discription: "Тут будет описание ...", picUrl: "" },
-    { topicName: "Турция", discription: "Тут будет описание ...", picUrl: "" },
-    { topicName: "Франция", discription: "Тут будет описание ...", picUrl: "" },
   ];
   return (
     <div>
