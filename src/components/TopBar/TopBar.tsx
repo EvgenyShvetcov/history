@@ -10,7 +10,7 @@ export const TopBar = () => {
 
   return (
     <div className="topbar">
-      <Link to="/theams" className="topbarPart">
+      <Link to="/subjects" className="topbarPart">
         Разделы
       </Link>
       <div className="topbarPart">

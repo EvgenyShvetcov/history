@@ -1,7 +1,7 @@
 import "./App.scss";
 import { Routes, Route } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage";
-import { Theams } from "./components/Theams/Theams";
+import { Subjects } from "./components/Subjects/Subjects";
 import { ROUTES } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -13,7 +13,7 @@ export const App = () => {
     <div className={currentTheme === true ? "DarkApp" : "App"}>
       <Routes>
         <Route path={ROUTES.home} element={<MainPage />} />
-        <Route path={ROUTES.theams} element={<Theams />} />
+        <Route path={ROUTES.subjects} element={<Subjects />} />
       </Routes>
     </div>
   );

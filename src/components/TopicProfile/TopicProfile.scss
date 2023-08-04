@@ -1,8 +1,26 @@
 .TopicProfile {
-  width: 60%;
   height: 300px;
   border-radius: 100px;
-  border: 2px solid black;
-  padding: 40px;
-  margin: 30px;
+  border: 3px solid black;
+  padding: 40px 80px;
+  margin: 40px 20px;
+}
+
+.TopicName {
+  font-size: 40px;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.TopicDiscription {
+  font-size: 20px;
+  font-weight: 200;
+  margin: 10px;
+  height: 200px;
+}
+
+.TopicLink {
+  font-size: 20px;
+  font-weight: 200;
+  margin: 10px;
 }

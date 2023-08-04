@@ -29,10 +29,18 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "..", "./build"),
-    filename: "bundle.js",
+    filename: "[name][contenthash].js",
+    assetModuleFilename: "[name][ext]",
+    clean: true,
     publicPath: "/",
   },
   devServer: {
+    port: 8000,
+    compress: true,
+    hot: true,
+    static: {
+      directory: path.resolve(__dirname, "..", "./build"),
+    },
     historyApiFallback: true,
   },
   mode: "development",
