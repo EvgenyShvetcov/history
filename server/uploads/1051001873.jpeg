@@ -1,0 +1,24 @@
+<!DOCTYPE html><html>
+<head>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        img { box-shadow:0 0 45px #000; }
+    </style>
+</head>
+<body style="background:#222;">
+<a href="/fullpic/f83720c106ba8025ffd63351a73fcca3/"><img src="/fullpic/f83720c106ba8025ffd63351a73fcca3/" border="0" onLoad="if(this.height>self.innerHeight && this.width<self.innerWidth) this.height=self.innerHeight-30; else if(this.height<self.innerHeight && this.width>self.innerWidth) this.width=self.innerWidth-30; else if(this.height-self.innerHeight>this.width-self.innerWidth && this.height>self.innerHeight && this.width>self.innerWidth) this.height=self.innerHeight-30; else if(this.height-self.innerHeight<this.width-self.innerWidth && this.height>self.innerHeight && this.width>self.innerWidth) this.width=self.innerWidth-30; this.hspace=(self.innerWidth-this.width-30)/2; if(this.height<self.innerHeight-60) this.vspace=(self.innerHeight-this.height-60)/2;"></a>
+
+    <div id="counters">
+
+        <!-- Yandex.Metrika counter --> <script> (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[ ]).push(arguments)}; m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(253414, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/253414" style="position:absolute; left:-9999px;" alt=""></div></noscript> <!-- /Yandex.Metrika counter -->
+
+        <!-- Global site tag (gtag.js) - Google Analytics 4 -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP52TJGRJJ"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [ ];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LP52TJGRJJ');
+        </script>
+    </div>
+    

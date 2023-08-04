@@ -10,11 +10,9 @@ export const Subjects = () => {
   const dispatch = useDispatch();
   const subjects = useSelector((state: RootState) => state.chapters);
 
-  console.log(subjects, "subjects");
-
   useEffect(() => {
     dispatch(chaptersSlice.actions.getAllChaptersFetch());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div>

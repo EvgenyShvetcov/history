@@ -5,6 +5,7 @@ import { Subjects } from "./components/Subjects/Subjects";
 import { ROUTES } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
+import { useEffect } from "react";
 
 export const App = () => {
   const currentTheme = useSelector((state: RootState) => state.theme);
