@@ -1,22 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchData } from "../../../interfaces";
-// import { ChapterState } from "../../../interfaces";
+import { LoadingState, fetchData } from "../../../interfaces";
+import { ChapterState } from "../../../interfaces";
 
-const initialState: fetchData = { data: [], isLoading: false };
+const initialState: fetchData<ChapterState> = {
+  data: [],
+  isLoading: LoadingState.loading,
+};
 
 export const chaptersSlice = createSlice({
   name: "chapters",
-  initialState: initialState,
+  initialState,
   reducers: {
     getAllChaptersFetch: (state) => {
-      state.isLoading = true;
+      state.isLoading = LoadingState.loading;
     },
     getAllChapters: (state, action) => {
       state.data = action.payload;
-      state.isLoading = false;
+      state.isLoading = LoadingState.success;
     },
     getAllChaptersFailure: (state) => {
-      state.isLoading = false;
+      state.isLoading = LoadingState.failed;
     },
   },
 });

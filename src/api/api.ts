@@ -1,24 +1,58 @@
 import axios from "axios";
+import {
+  ChapterState,
+  LoadingState,
+  PostState,
+  UserState,
+  fetchData,
+  fetchDataUser,
+} from "../interfaces";
 // import { ApplicationState, IncomingJson } from "./interfaces";
 
-const headers = {
-  "Content-Type": "application/json",
-  "Access-Control-Allow-Origin": "http://localhost:3000",
-};
+const instance = axios.create({
+  baseURL: "http://localhost:3000",
+  timeout: 60000,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
 
-export async function getChapters(): Promise<[]> {
-  // let responce: IncomingJson | {} = {};
+export async function getChapters(): Promise<fetchData<ChapterState | null>> {
   try {
-    const responce = await axios
-      .get(`http://localhost:3000/subjects`, { headers: headers })
-      .then((resp) => {
-        console.log(resp, "resp");
-
-        return resp;
-      });
+    const responce = await instance.get(`/subjects`).then((resp) => {
+      return resp;
+    });
     return responce.data;
   } catch (e) {
     console.log(e);
-    return [];
+    return { data: [], isLoading: LoadingState.failed };
+  }
+}
+
+export async function getPosts(
+  topicId: string
+): Promise<fetchData<PostState | null>> {
+  try {
+    const responce = await instance.get(`/posts/${topicId}`).then((resp) => {
+      return resp;
+    });
+    return responce.data;
+  } catch (e) {
+    console.log(e);
+    return { data: [], isLoading: LoadingState.failed };
+  }
+}
+
+export async function registration(
+  params: UserState
+): Promise<fetchDataUser<UserState | null>> {
+  try {
+    const responce = await instance.get(`/posts/`).then((resp) => {
+      return resp;
+    });
+    return responce.data;
+  } catch (e) {
+    console.log(e);
+    return { data: null, isLoading: LoadingState.failed };
   }
 }

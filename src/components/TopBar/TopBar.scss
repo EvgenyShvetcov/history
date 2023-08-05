@@ -3,6 +3,7 @@
 .topbar {
   height: 60px;
   display: flex;
+  justify-content: space-between;
   position: fixed;
   align-items: center;
   width: 100%;
@@ -12,7 +13,11 @@
 }
 
 .topbarPart {
-  margin-left: 50px;
+  margin: 0 25px;
   text-decoration: none;
   color: blanchedalmond;
+}
+.leftSide {
+  display: flex;
+  align-items: center;
 }

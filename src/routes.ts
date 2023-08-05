@@ -1,6 +1,8 @@
 export const ROUTES = {
   home: "/",
   subjects: "/subjects",
-  topic: "/subjects/:name",
-  card: "/subjects/:name/:id",
+  posts: "/subjects/:id",
+  card: "/post/:id",
+  register: "/register",
+  login: "/login",
 };

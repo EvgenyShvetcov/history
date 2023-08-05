@@ -23,6 +23,7 @@ export const Subjects = () => {
             <div className="Subjects">
               {subjects.data.map((el) => (
                 <TopicProfile
+                  id={el._id}
                   key={el.country}
                   topicName={el.country}
                   discription={el.discription}
