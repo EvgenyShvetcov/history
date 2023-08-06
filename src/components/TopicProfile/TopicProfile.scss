@@ -1,27 +1,43 @@
 .TopicProfile {
   height: 300px;
   border-radius: 5px;
-  padding: 40px 80px;
+  padding: 30px 80px;
   margin: 40px 20px;
-  min-width: 900px;
-  max-width: 1200px;
+  width: 1200px;
+  border: solid 2px white;
   box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.15);
   &:hover {
-    background-color: rgb(250, 232, 232);
+    border: solid 2px rgb(245, 198, 198);
   }
 }
 
 .TopicName {
   font-size: 40px;
   font-weight: 400;
-  margin: 10px;
 }
 
 .TopicDiscription {
   font-size: 20px;
   font-weight: 200;
-  margin: 10px;
-  height: 200px;
+  margin: 20px;
+  height: 150px;
+  overflow: hidden;
+  line-height: 1.1em;
+  padding: 1rem;
+  position: relative;
+}
+
+.TopicDiscription:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: linear-gradient(180deg, transparent, white 50%);
+  &:hover {
+    background: white;
+  }
 }
 
 .TopicLink {
