@@ -1,12 +1,10 @@
-import { Switch } from "@mui/material";
 import "./TopBar.scss";
-
-import { useDispatch } from "react-redux";
-import { themeSlice } from "../../store/redux/theme";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { RootState } from "../../store/redux";
 
 export const TopBar = () => {
-  const dispatch = useDispatch();
+  const userData = useSelector((state: RootState) => state.auth.data);
 
   return (
     <div className="topbar">
@@ -14,23 +12,27 @@ export const TopBar = () => {
         <Link to="/subjects" className="topbarPart">
           Разделы
         </Link>
-        <div className="topbarPart">
-          Тёмная тема :
-          <Switch
-            onChange={() => {
-              dispatch(themeSlice.actions.changeTheme());
-            }}
-          />
+        <Link to="/" className="topbarPart">
+          Главная
+        </Link>
+      </div>
+      {userData.user ? (
+        <div className="leftSide">
+          <div className="topbarPart">{userData.user?.fullName}</div>
+          <Link to="/logout" className="topbarPart">
+            Логаут
+          </Link>
         </div>
-      </div>
-      <div className="leftSide">
-        <Link to="/login" className="topbarPart">
-          Логин
-        </Link>
-        <Link to="/register" className="topbarPart">
-          Регистрация
-        </Link>
-      </div>
+      ) : (
+        <div className="leftSide">
+          <Link to="/login" className="topbarPart">
+            Логин
+          </Link>
+          <Link to="/register" className="topbarPart">
+            Регистрация
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

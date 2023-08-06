@@ -3,23 +3,46 @@ import { Routes, Route } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage";
 import { Subjects } from "./components/Subjects/Subjects";
 import { ROUTES } from "./routes";
-import { useSelector } from "react-redux";
-import { RootState } from "./store";
 import { Posts } from "./components/Posts/Posts";
 import { Registration } from "./components/Registration/Registration";
 import { Login } from "./components/Login/Login";
+import { Logout } from "./components/Logout/Logout";
+import { allApi } from "./store/services/Services";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getAuthSlice } from "./store/redux/auth";
+import { PostCard } from "./components/PostCard/PostCard";
 
 export const App = () => {
-  const currentTheme = useSelector((state: RootState) => state.theme);
+  const dispatch = useDispatch();
 
+  const { data } = allApi.useFetchUserQuery("");
+
+  useEffect(() => {
+    data
+      ? dispatch(
+          getAuthSlice.actions.getAuthData({
+            user: data,
+            isAuthenticated: true,
+          })
+        )
+      : dispatch(
+          getAuthSlice.actions.getAuthData({
+            user: null,
+            isAuthenticated: false,
+          })
+        );
+  }, [data, dispatch]);
   return (
-    <div className={currentTheme === true ? "DarkApp" : "App"}>
+    <div className={"App"}>
       <Routes>
         <Route path={ROUTES.home} element={<MainPage />} />
         <Route path={ROUTES.subjects} element={<Subjects />} />
         <Route path={ROUTES.posts} element={<Posts />} />
         <Route path={ROUTES.register} element={<Registration />} />
         <Route path={ROUTES.login} element={<Login />} />
+        <Route path={ROUTES.logout} element={<Logout />} />
+        <Route path={ROUTES.card} element={<PostCard />} />
       </Routes>
     </div>
   );

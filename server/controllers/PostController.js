@@ -29,20 +29,23 @@ export const getOne = async (req, res) => {
       {
         returnDocument: "after",
       }
-    ).then((doc, err) => {
-      if (err) {
-        return res.status(500).json({
-          message: "Не удалось получить статью.",
-        });
-      }
-      if (!doc) {
-        return res.status(404).json({
-          message: "Статья не найдена.",
-        });
-      }
+    )
+      .populate(["user"])
+      .exec()
+      .then((doc, err) => {
+        if (err) {
+          return res.status(500).json({
+            message: "Не удалось получить статью.",
+          });
+        }
+        if (!doc) {
+          return res.status(404).json({
+            message: "Статья не найдена.",
+          });
+        }
 
-      res.json(doc);
-    });
+        res.json(doc);
+      });
   } catch (error) {
     console.log(error);
     return res.status(500).json({
@@ -54,8 +57,7 @@ export const getOne = async (req, res) => {
 export const update = async (req, res) => {
   try {
     const postId = req.params.id;
-    // const chapter = await ChaptersModel.findOne({ country: req.body.topic });
-    console.log(req.body.topic);
+
     await PostModel.updateOne(
       {
         _id: postId,

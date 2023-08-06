@@ -17,10 +17,8 @@ export const createChapter = async (req, res) => {
       pictureUrl: req.body.pictureUrl,
     });
     const chapter = await doc.save();
-    console.log(chapter);
     res.json({ succsess: true });
   } catch (e) {
-    console.log(e);
     return res.status(400).json({
       message: "Не удалось создать главу.",
     });

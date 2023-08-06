@@ -1,11 +1,25 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const isDevelopment = true;
+const MAIN_ENTRY_NAME = "main";
 
 module.exports = {
   entry: path.resolve(__dirname, "..", "./src/index.tsx"),
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".tsx", ".ts", ".js", ".scss"],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      chunks: [MAIN_ENTRY_NAME],
+      template: path.resolve(__dirname, "..", "./src/index.html"),
+      filename: "index.html",
+    }),
+    new MiniCssExtractPlugin({
+      filename: isDevelopment ? "[name].css" : "[name].[hash].css",
+      chunkFilename: isDevelopment ? "[id].css" : "[id].[hash].css",
+    }),
+  ],
   module: {
     rules: [
       {
@@ -44,10 +58,6 @@ module.exports = {
     historyApiFallback: true,
   },
   mode: "development",
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, "..", "./src/index.html"),
-    }),
-  ],
+
   stats: "errors-only",
 };

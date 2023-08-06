@@ -5,4 +5,6 @@ export const ROUTES = {
   card: "/post/:id",
   register: "/register",
   login: "/login",
+  logout: "/logout",
+  account: "/account",
 };

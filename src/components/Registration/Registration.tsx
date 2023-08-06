@@ -1,44 +1,96 @@
 import { useDispatch } from "react-redux";
-import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import "./Registration.scss";
-import { registerSlice } from "../../store/redux/auth";
 import { useForm } from "react-hook-form";
-
-export const Registration = () => {
+import { Button, TextField, Typography } from "@mui/material";
+import { allApi } from "../../store/services/Services";
+import { RegistrationState, UserState } from "../../interfaces";
+import { FC, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAuthSlice } from "../../store/redux/auth";
+export const Registration: FC = () => {
   const {
     register,
     handleSubmit,
-    setError,
     formState: { errors, isValid },
   } = useForm({
     defaultValues: {
       email: "",
       fullName: "",
-      avatarUrl: "",
       password: "",
     },
   });
-  const onSubmit = () => {};
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [registerUser, fetchData] = allApi.useFetchRegisterMutation();
+
+  useEffect(() => {
+    if (fetchData.isSuccess) {
+      if (fetchData.data.token) {
+        const { token, ...user } = fetchData.data;
+        window.localStorage.setItem("token", token);
+        dispatch(
+          getAuthSlice.actions.getAuthData({
+            user: user,
+            isAuthenticated: true,
+          })
+        );
+        navigate("/");
+      } else throw console.error("ошибка");
+    }
+  }, [fetchData.isSuccess, dispatch]);
+  const onSubmit = (values: RegistrationState) => {
+    registerUser(values);
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>Имейл</div>
-      <input
-        {...register("email", { required: "Укажите почту" })}
-        name="email"
-      />
-      {errors.email && <div>{errors.email?.message}</div>}
-      <div>Имя</div>
-      <input name="fullName" />
-      <div>Аватар</div>
-      <input name="avatarUrl" />
-      <div>Пароль</div>
-      <input
-        {...register("password", { required: "Укажите пароль" })}
-        name="password"
-      />
-      {errors.password && <div>{errors.password?.message}</div>}
-      <button type="submit">войти</button>
-    </form>
+    <div className="registration">
+      <form className="registrationForm" onSubmit={handleSubmit(onSubmit)}>
+        <Typography variant="h3">Регистрация</Typography>
+        <div className="textField">
+          <TextField
+            label="Имя пользователя"
+            fullWidth
+            helperText={errors.fullName && errors.password?.message}
+            {...register("fullName", {
+              required: "Укажите имя пользователя",
+            })}
+          />
+        </div>{" "}
+        <div className="textField">
+          <TextField
+            label="E-Mail"
+            fullWidth
+            helperText={
+              (errors.email &&
+                errors.email.type === "pattern" &&
+                "Некорректный формат email") ||
+              errors.email?.message
+            }
+            {...register("email", {
+              required: "Укажите почту",
+              pattern:
+                /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+            })}
+          />{" "}
+        </div>
+        <div className="textField">
+          <TextField
+            label="Пароль"
+            fullWidth
+            helperText={
+              (errors.password &&
+                errors.password.type === "minLength" &&
+                "Слишком короткий пароль.") ||
+              errors.password?.message
+            }
+            {...register("password", {
+              required: "Укажите пароль",
+              minLength: 5,
+            })}
+          />
+        </div>
+        <Button type="submit">войти</Button>
+      </form>
+    </div>
   );
 };

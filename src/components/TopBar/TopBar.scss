@@ -8,14 +8,20 @@
   align-items: center;
   width: 100%;
   left: 0;
-  background-color: variables.$navbar;
+  background-color: white;
   border: 1px black solid;
 }
 
 .topbarPart {
-  margin: 0 25px;
+  display: flex;
+  padding: 0 25px;
   text-decoration: none;
-  color: blanchedalmond;
+  height: 60px;
+  align-items: center;
+  color: rgb(34, 33, 32);
+  &:hover {
+    background-color: rgb(248, 238, 238);
+  }
 }
 .leftSide {
   display: flex;

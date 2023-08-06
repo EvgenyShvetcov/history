@@ -3,19 +3,10 @@
 html,
 body,
 #root {
-  height: 100%;
   margin: 0px;
   padding: 0px;
 }
 
-.App {
-  @extend body;
-  background-color: variables.$lightTheme;
-  color: black;
-}
-
-.DarkApp {
-  @extend body;
-  background-color: variables.$darkTheme;
-  color: white;
+.MuiTypography-h3 {
+  margin: 30px 0;
 }

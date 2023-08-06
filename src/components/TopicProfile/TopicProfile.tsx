@@ -1,22 +1,23 @@
 import { FC } from "react";
 import "./TopicProfile.scss";
-import { Link } from "react-router-dom";
 
 interface Props {
-  id: string;
   topicName: string;
   discription: string;
   url?: string;
+  childrenLink?: React.ReactNode;
 }
 
-export const TopicProfile: FC<Props> = ({ topicName, discription, id }) => {
+export const TopicProfile: FC<Props> = ({
+  topicName,
+  discription,
+  childrenLink,
+}) => {
   return (
     <div className="TopicProfile">
       <div className="TopicName">{topicName}</div>
       <div className="TopicDiscription">{discription}</div>
-      <Link className="TopicLink" to={`/subjects/${id}`}>
-        Линк на переход по айди
-      </Link>
+      <div className="TopicLink"> {childrenLink}</div>
     </div>
   );
 };

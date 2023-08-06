@@ -1,9 +1,19 @@
-.description {
-  height: 200px;
-  border-radius: 100px;
-  border: 2px solid black;
-  padding: 80px;
-  margin: 30px;
-  font-size: 20px;
-  font-weight: 600;
+.login {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  align-items: center;
+}
+
+.textField {
+  width: 500px;
+  margin: 20px 0;
 }

@@ -15,7 +15,25 @@ export interface UserState {
   _id: string;
   fullName: string;
   email: string;
+  token?: string;
+  createdAt: string;
+  updatedAt: string;
   passwordHash?: string;
+  avatarUrl?: string;
+}
+
+export interface User {
+  user: UserState | null;
+  isAuthenticated: boolean;
+}
+
+export interface UserLogin {
+  email: string;
+  password: string;
+}
+
+export interface RegistrationState extends UserLogin {
+  fullName: string;
   avatarUrl?: string;
 }
 
@@ -31,10 +49,8 @@ export interface PostState {
 
 export interface fetchData<Item> {
   data: Item[];
-  isLoading: LoadingState;
 }
 
 export interface fetchDataUser<Item> {
   data: Item;
-  isLoading: LoadingState;
 }

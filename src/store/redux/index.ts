@@ -1,12 +1,11 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import themeSlice from "./theme";
-import chaptersSlice from "./chapters";
-import postsSlice from "./posts";
+
+import authSlice from "./auth";
+import { allApi } from "../services/Services";
 
 export const rootReducer = combineReducers({
-  theme: themeSlice,
-  chapters: chaptersSlice,
-  posts: postsSlice,
+  auth: authSlice,
+  [allApi.reducerPath]: allApi.reducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

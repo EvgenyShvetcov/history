@@ -1,31 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { LoadingState, UserState, fetchDataUser } from "../../../interfaces";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { User, fetchDataUser } from "../../../interfaces";
 
-const initialState: fetchDataUser<UserState | null> = {
-  data: null,
-  isLoading: LoadingState.loading,
+const initialState: fetchDataUser<User> = {
+  data: { user: null, isAuthenticated: false },
 };
 
-export const registerSlice = createSlice({
+export const getAuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    registerFetch: (state, action) => {
-      // console.log(action);
+    getAuthData: (state, action: PayloadAction<User>) => {
       state.data = action.payload;
-      state.isLoading = LoadingState.loading;
-    },
-    register: (state, action) => {
-      state.data = action.payload;
-      state.isLoading = LoadingState.success;
-    },
-    registerFailure: (state) => {
-      state.isLoading = LoadingState.failed;
     },
   },
 });
 
-export const { registerFetch, register, registerFailure } =
-  registerSlice.actions;
+export const { getAuthData } = getAuthSlice.actions;
 
-export default registerSlice.reducer;
+export default getAuthSlice.reducer;
