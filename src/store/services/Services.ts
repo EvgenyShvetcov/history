@@ -20,7 +20,7 @@ export const allApi = createApi({
     },
   }),
 
-  tagTypes: ["auth"],
+  tagTypes: ["auth", "posts"],
   endpoints: (build) => ({
     //Эндпоинты с аунтификацией и юзером
     fetchLogin: build.mutation<UserState, UserLogin>({
@@ -44,7 +44,7 @@ export const allApi = createApi({
         url: "/auth/me",
         method: "GET",
       }),
-      // providesTags: ["auth"],
+      providesTags: ["auth"],
     }),
     //Разделы с главами
     fetchAllChapters: build.query<ChapterState[], string>({
@@ -60,35 +60,40 @@ export const allApi = createApi({
         url: `/post/${id}`,
         method: "GET",
       }),
+      providesTags: ["posts"],
     }),
     fetchAllPosts: build.query<PostState[], string>({
       query: (topicId: string) => ({
         url: `/posts/${topicId}`,
         method: "GET",
       }),
+      providesTags: ["posts"],
     }),
-    fetchDeletePost: build.query<PostState[], string>({
+    fetchDeletePost: build.mutation<PostState[], string>({
       query: (topicId: string) => ({
         url: `/post/${topicId}`,
         method: "DELETE",
       }),
+      invalidatesTags: ["posts"],
     }),
-    fetchUpdatePost: build.query<
-      PostState[],
-      { state: PostState; topicId: number }
+    fetchUpdatePost: build.mutation<
+      PostState,
+      { state: Partial<PostState>; topicId: string }
     >({
       query: ({ state, topicId }) => ({
-        url: `/posts/${topicId}`,
+        url: `/post/${topicId}`,
         method: "PATCH",
-        params: state,
+        body: state,
       }),
+      invalidatesTags: ["posts"],
     }),
-    fetchCreatePost: build.query<PostState[], PostState>({
+    fetchCreatePost: build.mutation<PostState, Partial<PostState>>({
       query: (state) => ({
         url: `/posts`,
         method: "POST",
-        params: state,
+        body: state,
       }),
+      invalidatesTags: ["posts"],
     }),
   }),
 });

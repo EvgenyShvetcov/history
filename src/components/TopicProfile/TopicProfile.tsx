@@ -1,11 +1,12 @@
 import { FC } from "react";
 import "./TopicProfile.scss";
+import { Link } from "react-router-dom";
 
 interface Props {
   topicName: string;
   discription: string;
   url?: string;
-  childrenLink?: React.ReactNode;
+  childrenLink: string;
 }
 
 export const TopicProfile: FC<Props> = ({
@@ -14,10 +15,11 @@ export const TopicProfile: FC<Props> = ({
   childrenLink,
 }) => {
   return (
-    <div className="TopicProfile">
-      <div className="TopicName">{topicName}</div>
-      <div className="TopicDiscription">{discription}</div>
-      <div className="TopicLink"> {childrenLink}</div>
-    </div>
+    <Link to={childrenLink} className="link">
+      <div className="TopicProfile">
+        <div className="TopicName">{topicName}</div>
+        <div className="TopicDiscription">{discription}</div>
+      </div>
+    </Link>
   );
 };

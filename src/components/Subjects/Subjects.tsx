@@ -3,10 +3,11 @@ import { TopicProfile } from "../TopicProfile/TopicProfile";
 import "./Subjects.scss";
 import { allApi } from "../../store/services/Services";
 import { Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 
 export const Subjects = () => {
-  const { data, error, isLoading } = allApi.useFetchAllChaptersQuery("");
+  const { data, error, isLoading } = allApi.useFetchAllChaptersQuery("", {
+    refetchOnMountOrArgChange: true,
+  });
 
   return (
     <div>
@@ -23,11 +24,7 @@ export const Subjects = () => {
                     key={el.country}
                     topicName={el.country}
                     discription={el.discription}
-                    childrenLink={
-                      <Link className="TopicLink" to={`/subjects/${el._id}`}>
-                        Перейти в раздел {el.country}
-                      </Link>
-                    }
+                    childrenLink={`/subjects/${el._id}`}
                   />
                 ))}
             </div>

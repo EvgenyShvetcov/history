@@ -10,9 +10,11 @@
   left: 0;
   background-color: white;
   border: 1px black solid;
+  z-index: 1000;
 }
 
 .topbarPart {
+  font-size: variables.$Topbar-fontsize;
   display: flex;
   padding: 0 25px;
   text-decoration: none;
@@ -20,7 +22,7 @@
   align-items: center;
   color: rgb(34, 33, 32);
   &:hover {
-    background-color: rgb(248, 238, 238);
+    background-color: variables.$hover;
   }
 }
 .leftSide {

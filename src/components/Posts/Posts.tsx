@@ -1,21 +1,44 @@
-import { Link } from "react-router-dom";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import { TopicProfile } from "../TopicProfile/TopicProfile";
 import "./Posts.scss";
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { FC } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
+import { useNavigate } from "react-router-dom";
+import { ArrowBack } from "@mui/icons-material";
 
 export const Posts: FC = () => {
   const param1 = window.location.pathname.replace(/[/]subjects\s?[/]/, "");
   const { data, error, isLoading } = allApi.useFetchAllPostsQuery(param1);
+  const navigate = useNavigate();
+  const userData = useSelector((state: RootState) => state.auth.data);
 
   return (
     <div>
       <DefaultLayout
         children={
           <div>
-            <Typography variant="h3">Посты</Typography>
+            <div className="topPart">
+              <div className="topLeftPart">
+                <div className="IconBack">
+                  <ArrowBack
+                    onClick={() => navigate(-1)}
+                    className="IconBack"
+                  />
+                </div>
+                <Typography variant="h3">Посты</Typography>
+              </div>
+              {userData.isAuthenticated && (
+                <Button
+                  className="addButton"
+                  onClick={() => navigate(`/addPost/${param1}`)}
+                >
+                  Добавить пост
+                </Button>
+              )}
+            </div>
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
             <div className="posts">
@@ -25,11 +48,7 @@ export const Posts: FC = () => {
                     key={el.title}
                     topicName={el.title}
                     discription={el.text}
-                    childrenLink={
-                      <Link className="TopicLink" to={`/post/${el._id}`}>
-                        Перейти к посту {el.title}
-                      </Link>
-                    }
+                    childrenLink={`/post/${el._id}`}
                   />
                 ))}
             </div>

@@ -7,4 +7,6 @@ export const ROUTES = {
   login: "/login",
   logout: "/logout",
   account: "/account",
+  addPost: "/addPost/:topic",
+  updatePost: "/updatePost/:id",
 };

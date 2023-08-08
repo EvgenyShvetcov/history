@@ -126,11 +126,10 @@ export const remove = async (req, res) => {
 
 export const create = async (req, res) => {
   try {
-    const chapter = await ChaptersModel.findOne({ country: req.body.topic });
     const doc = new PostModel({
       title: req.body.title,
       text: req.body.text,
-      topic: chapter._id,
+      topic: req.body.topic,
       imageUrl: req.body.imageUrl,
       user: req.userId,
     });

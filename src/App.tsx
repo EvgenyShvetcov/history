@@ -8,10 +8,12 @@ import { Registration } from "./components/Registration/Registration";
 import { Login } from "./components/Login/Login";
 import { Logout } from "./components/Logout/Logout";
 import { allApi } from "./store/services/Services";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { getAuthSlice } from "./store/redux/auth";
 import { PostCard } from "./components/PostCard/PostCard";
+import { AddPost } from "./components/AddPost/AddPost";
+import { UpdatePost } from "./components/UpdatePost/UpdatePost";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,8 @@ export const App = () => {
         <Route path={ROUTES.login} element={<Login />} />
         <Route path={ROUTES.logout} element={<Logout />} />
         <Route path={ROUTES.card} element={<PostCard />} />
+        <Route path={ROUTES.addPost} element={<AddPost />} />
+        <Route path={ROUTES.updatePost} element={<UpdatePost />} />
       </Routes>
     </div>
   );

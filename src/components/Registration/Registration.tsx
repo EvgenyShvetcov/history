@@ -7,6 +7,7 @@ import { RegistrationState, UserState } from "../../interfaces";
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuthSlice } from "../../store/redux/auth";
+import { ArrowBack } from "@mui/icons-material";
 export const Registration: FC = () => {
   const {
     register,
@@ -44,6 +45,9 @@ export const Registration: FC = () => {
 
   return (
     <div className="registration">
+      <div className="IconLogin">
+        <ArrowBack onClick={() => navigate(-1)} className="IconLogin" />
+      </div>
       <form className="registrationForm" onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h3">Регистрация</Typography>
         <div className="textField">

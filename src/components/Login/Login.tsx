@@ -7,6 +7,7 @@ import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAuthSlice } from "../../store/redux/auth";
 import { Button, TextField, Typography } from "@mui/material";
+import { ArrowBack } from "@mui/icons-material";
 
 export const Login: FC = () => {
   const [login, fetchData] = allApi.useFetchLoginMutation();
@@ -45,6 +46,9 @@ export const Login: FC = () => {
   };
   return (
     <div className="login">
+      <div className="IconLogin">
+        <ArrowBack onClick={() => navigate(-1)} className="IconLogin" />
+      </div>
       <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h3">Вход в аккаунт</Typography>
         <div className="textField">

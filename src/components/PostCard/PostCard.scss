@@ -15,8 +15,17 @@
 .text {
   background-color: rgb(219, 219, 219);
   width: 100%;
-  min-height: 800px;
+  min-height: 600px;
   padding: 40px;
   box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.15);
   overflow-y: auto;
+  box-shadow: 0 15px 35px 0 rgba(0, 0, 0, 0.15);
+}
+
+.sureDeleteButton {
+  color: black !important;
+  width: 250px;
+  border-radius: 6px;
+  background-color: rgb(255, 70, 70) !important;
+  margin-left: 30px !important;
 }

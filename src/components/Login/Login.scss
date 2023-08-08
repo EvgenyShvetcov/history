@@ -1,3 +1,4 @@
+@use "src/variables.scss";
 .login {
   display: flex;
   width: 100%;
@@ -16,4 +17,14 @@
 .textField {
   width: 500px;
   margin: 20px 0;
+}
+
+.IconLogin {
+  padding: 10px;
+  border-radius: 20px/20px;
+  margin-right: 20px;
+  :hover {
+    background-color: variables.$hover;
+    cursor: pointer;
+  }
 }
