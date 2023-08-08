@@ -24,7 +24,7 @@ export const Posts: FC = () => {
               <div className="topLeftPart">
                 <div className="IconBack">
                   <ArrowBack
-                    onClick={() => navigate(-1)}
+                    onClick={() => navigate("/subjects")}
                     className="IconBack"
                   />
                 </div>
