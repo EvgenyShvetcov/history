@@ -71,6 +71,12 @@ export const AddPost: FC = () => {
             </div>
             <div className="bottomButtons">
               <Button
+                onClick={() => navigate(`/subjects/${param1}`)}
+                size="large"
+              >
+                Отмена
+              </Button>
+              <Button
                 size="large"
                 variant="contained"
                 onClick={() => {
@@ -83,12 +89,6 @@ export const AddPost: FC = () => {
                 }}
               >
                 Опубликовать
-              </Button>
-              <Button
-                onClick={() => navigate(`/subjects/${param1}`)}
-                size="large"
-              >
-                Отмена
               </Button>
             </div>
           </div>

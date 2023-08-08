@@ -30,7 +30,7 @@ export const getOne = async (req, res) => {
         returnDocument: "after",
       }
     )
-      .populate(["user"])
+      .populate(["user", { path: "comments", populate: ["user"] }])
       .exec()
       .then((doc, err) => {
         if (err) {

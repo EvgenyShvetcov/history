@@ -15,6 +15,7 @@ import {
   PostController,
   UserController,
   ChaptersController,
+  CommentsController,
 } from "./controllers/index.js";
 
 const PORT = process.env.PORT || 3000;
@@ -87,4 +88,4 @@ app.post(
   ChaptersController.createChapter
 );
 
-app.post("/comments", checkAuth, postValidation, PostController.create);
+app.post("/comment", checkAuth, CommentsController.createComment);

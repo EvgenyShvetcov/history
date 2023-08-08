@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
 import {
   ChapterState,
+  Comment,
+  PostComment,
   PostState,
   RegistrationState,
   UserLogin,
@@ -90,6 +92,14 @@ export const allApi = createApi({
     fetchCreatePost: build.mutation<PostState, Partial<PostState>>({
       query: (state) => ({
         url: `/posts`,
+        method: "POST",
+        body: state,
+      }),
+      invalidatesTags: ["posts"],
+    }),
+    fetchCreateComment: build.mutation<Comment, Partial<PostComment>>({
+      query: (state) => ({
+        url: `/comment`,
         method: "POST",
         body: state,
       }),

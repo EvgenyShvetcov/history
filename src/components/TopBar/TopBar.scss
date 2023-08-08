@@ -4,13 +4,11 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
-  position: fixed;
   align-items: center;
-  width: 100%;
   left: 0;
   background-color: white;
   border: 1px black solid;
-  z-index: 1000;
+  // z-index: 1000;
 }
 
 .topbarPart {

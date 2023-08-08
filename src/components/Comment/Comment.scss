@@ -1,0 +1,18 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 20px 0;
+}
+
+.commentText {
+  width: 90vw;
+  min-height: 70px;
+  background-color: rgb(214, 200, 175);
+  padding: 20px;
+}
+.commentUserName {
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 500;
+}

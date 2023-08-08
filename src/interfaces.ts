@@ -45,6 +45,21 @@ export interface PostState {
   viewsCount: Number;
   user: UserState;
   imageUrl: string;
+  comments: Comment[];
+}
+
+export interface Comment {
+  user: UserState;
+  text: string;
+  post: string;
+  date: string;
+}
+
+export interface PostComment {
+  Author: string;
+  text: string;
+  post: string;
+  date: string;
 }
 
 export interface fetchData<Item> {
