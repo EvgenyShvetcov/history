@@ -86,3 +86,5 @@ app.post(
   chaptersValidation,
   ChaptersController.createChapter
 );
+
+app.post("/comments", checkAuth, postValidation, PostController.create);
