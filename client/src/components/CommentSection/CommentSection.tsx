@@ -20,6 +20,7 @@ export const CommentSection: FC<Props> = ({ data, User }) => {
       {data && data.comments.length !== 0
         ? data.comments.map((el) => (
             <CommentComponent
+              key={el.date}
               text={el.text}
               User={el.user?.fullName || ""}
               date={el.date}
