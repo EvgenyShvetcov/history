@@ -1,6 +1,6 @@
 # history
 
-To start client npm start
+To start client cd client npm start
 
 to start server cd server npm run dev / npm start
 
