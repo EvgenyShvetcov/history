@@ -1,5 +1,5 @@
 import { FC } from "react";
-import "./Comment.scss";
+import "./CommentComponent.scss";
 
 interface Props {
   User: string;
@@ -7,7 +7,7 @@ interface Props {
   date: string;
 }
 
-export const Comment: FC<Props> = ({ User, text, date }) => {
+export const CommentComponent: FC<Props> = ({ User, text, date }) => {
   return (
     <div className="comment">
       <div className="commentUserName">{User}</div>

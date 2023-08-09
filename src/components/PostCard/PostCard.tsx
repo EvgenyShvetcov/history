@@ -2,14 +2,13 @@ import { FC, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import "./PostCard.scss";
-import { Button, Input, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
-import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../ui-kit/Modal";
-import { Comment } from "../Comment/Comment";
 import { PageTopSection } from "../PageTopSection/PageTopSection";
+import { CommentSection } from "../CommentSection/CommentSection";
 
 export const PostCard: FC = () => {
   const param1 = window.location.pathname.replace(/[/]post\s?[/]/, "");
@@ -22,13 +21,12 @@ export const PostCard: FC = () => {
   const [active, setActive] = useState<boolean>(false);
   const [currentComment, setCurrentComment] = useState<string>("");
 
-  console.log(data?.comments);
-
   return (
     <div>
       <DefaultLayout
         children={
           <div>
+            {/* Модалка на удаление, доработать */}
             <Modal
               active={active}
               setActive={setActive}
@@ -87,39 +85,8 @@ export const PostCard: FC = () => {
                 <div>{"Статья пользователя " + data?.user.fullName}</div>
                 <div>{"Количество просмотров: " + data?.viewsCount}</div>
               </div>
-              <div className="comments">
-                {data?.comments
-                  ? data.comments.map((el) => (
-                      <Comment
-                        text={el.text}
-                        User={el.user?.fullName || ""}
-                        date={el.date}
-                      />
-                    ))
-                  : "Комментариев пока нет."}
-                {userData.user && (
-                  <div className="addCommentSection">
-                    <Input
-                      fullWidth
-                      value={currentComment}
-                      onChange={(e) => setCurrentComment(e.target.value)}
-                    />
-                    <Button
-                      className="addButton"
-                      onClick={() => {
-                        createComment({
-                          text: currentComment,
-                          Author: userData.user?._id || "",
-                          post: data?._id || "",
-                        });
-                        setCurrentComment("");
-                      }}
-                    >
-                      Прокомментировать
-                    </Button>
-                  </div>
-                )}
-              </div>
+
+              <CommentSection User={userData.user} data={data} />
             </div>
           </div>
         }

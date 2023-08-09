@@ -46,7 +46,7 @@ export const UpdatePost: FC = () => {
                     className="IconBack"
                   />
                 </div>
-                <Typography variant="h3">Добавление поста</Typography>
+                <Typography variant="h3">Изменение поста</Typography>
               </div>
             </div>
             {/* {isLoading && "Идет загрузка..."}
