@@ -1,0 +1,32 @@
+@use "src/variables.scss";
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.content {
+  margin: 80px;
+}
+
+.topPart {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.topLeftPart {
+  display: flex;
+  align-items: center;
+}
+
+.IconBack {
+  padding: 20px;
+  border-radius: 40px/40px;
+  margin-right: 20px;
+  :hover {
+    background-color: variables.$hover;
+    cursor: pointer;
+  }
+}

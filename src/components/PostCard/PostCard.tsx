@@ -9,6 +9,7 @@ import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { Modal } from "../ui-kit/Modal";
 import { Comment } from "../Comment/Comment";
+import { PageTopSection } from "../PageTopSection/PageTopSection";
 
 export const PostCard: FC = () => {
   const param1 = window.location.pathname.replace(/[/]post\s?[/]/, "");
@@ -51,35 +52,33 @@ export const PostCard: FC = () => {
                 </div>
               }
             />
-            <div className="topPart">
-              <div className="topLeftPart">
-                <div className="IconBack">
-                  <ArrowBack
-                    onClick={() => navigate(-1)}
-                    className="IconBack"
-                  />
-                </div>
-                <Typography variant="h3">{data?.title}</Typography>
-              </div>
-              {userData.user?._id === data?.user._id && (
-                <div>
-                  <Button
-                    onClick={() =>
-                      data?._id && navigate(`/updatePost/${data?._id}`)
-                    }
-                    className="addButton"
-                  >
-                    Изменить пост
-                  </Button>
-                  <Button
-                    className="deleteButton"
-                    onClick={() => setActive(true)}
-                  >
-                    Удалить пост
-                  </Button>
-                </div>
-              )}
-            </div>
+            <PageTopSection
+              children={
+                userData.user?._id === data?.user._id ? (
+                  <div>
+                    <Button
+                      onClick={() =>
+                        data?._id && navigate(`/updatePost/${data?._id}`)
+                      }
+                      className="addButton"
+                    >
+                      Изменить пост
+                    </Button>
+                    <Button
+                      className="deleteButton"
+                      onClick={() => setActive(true)}
+                    >
+                      Удалить пост
+                    </Button>
+                  </div>
+                ) : (
+                  <div></div>
+                )
+              }
+              onClickBack={() => navigate(-1)}
+              title={data?.title || ""}
+            />
+
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
             <div className="post">
@@ -93,7 +92,7 @@ export const PostCard: FC = () => {
                   ? data.comments.map((el) => (
                       <Comment
                         text={el.text}
-                        User={el.user.fullName}
+                        User={el.user?.fullName || ""}
                         date={el.date}
                       />
                     ))
@@ -107,13 +106,14 @@ export const PostCard: FC = () => {
                     />
                     <Button
                       className="addButton"
-                      onClick={() =>
+                      onClick={() => {
                         createComment({
                           text: currentComment,
                           Author: userData.user?._id || "",
                           post: data?._id || "",
-                        })
-                      }
+                        });
+                        setCurrentComment("");
+                      }}
                     >
                       Прокомментировать
                     </Button>

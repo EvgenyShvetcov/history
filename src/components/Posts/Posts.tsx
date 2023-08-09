@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { ArrowBack } from "@mui/icons-material";
+import { PageTopSection } from "../PageTopSection/PageTopSection";
 
 export const Posts: FC = () => {
   const param1 = window.location.pathname.replace(/[/]subjects\s?[/]/, "");
@@ -20,25 +21,22 @@ export const Posts: FC = () => {
       <DefaultLayout
         children={
           <div>
-            <div className="topPart">
-              <div className="topLeftPart">
-                <div className="IconBack">
-                  <ArrowBack
-                    onClick={() => navigate("/subjects")}
-                    className="IconBack"
-                  />
-                </div>
-                <Typography variant="h3">Посты</Typography>
-              </div>
-              {userData.isAuthenticated && (
-                <Button
-                  className="addButton"
-                  onClick={() => navigate(`/addPost/${param1}`)}
-                >
-                  Добавить пост
-                </Button>
-              )}
-            </div>
+            <PageTopSection
+              children={
+                userData.isAuthenticated ? (
+                  <Button
+                    className="addButton"
+                    onClick={() => navigate(`/addPost/${param1}`)}
+                  >
+                    Добавить пост
+                  </Button>
+                ) : (
+                  <div></div>
+                )
+              }
+              onClickBack={() => navigate("/subjects")}
+              title="Посты"
+            />
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
             <div className="posts">
