@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./CommentComponent.scss";
 
 interface Props {
@@ -16,3 +16,5 @@ export const CommentComponent: FC<Props> = ({ User, text, date }) => {
     </div>
   );
 };
+
+export const MemoizedCommentComponent = React.memo(CommentComponent);

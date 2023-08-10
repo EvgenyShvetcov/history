@@ -55,6 +55,7 @@ export const Login: FC = () => {
           <TextField
             label="E-Mail"
             fullWidth
+            type="email"
             helperText={
               (errors.email &&
                 errors.email.type === "pattern" &&
@@ -72,6 +73,7 @@ export const Login: FC = () => {
           <TextField
             label="Пароль"
             fullWidth
+            type="password"
             helperText={
               (errors.password &&
                 errors.password.type === "minLength" &&

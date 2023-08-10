@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import "./CommentSection.scss";
 import { PostState, UserState } from "../../interfaces";
-import { CommentComponent } from "../CommentComponent/CommentComponent";
+import { MemoizedCommentComponent } from "../CommentComponent/CommentComponent";
 import { Button, Input } from "@mui/material";
 import { allApi } from "../../store/services/Services";
 
@@ -19,7 +19,7 @@ export const CommentSection: FC<Props> = ({ data, User }) => {
     <div className="comments">
       {data && data.comments.length !== 0
         ? data.comments.map((el) => (
-            <CommentComponent
+            <MemoizedCommentComponent
               key={el.date}
               text={el.text}
               User={el.user?.fullName || ""}
