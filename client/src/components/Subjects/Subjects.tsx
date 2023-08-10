@@ -1,5 +1,5 @@
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import { TopicProfile } from "../TopicProfile/TopicProfile";
+import { MemoizedTopicProfile } from "../TopicProfile/TopicProfile";
 import "./Subjects.scss";
 import { allApi } from "../../store/services/Services";
 import { Typography } from "@mui/material";
@@ -20,7 +20,7 @@ export const Subjects = () => {
             <div className="subjects">
               {data &&
                 data.map((el) => (
-                  <TopicProfile
+                  <MemoizedTopicProfile
                     key={el.country}
                     topicName={el.country}
                     discription={el.discription}

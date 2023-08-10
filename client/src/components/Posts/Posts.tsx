@@ -1,6 +1,6 @@
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import { TopicProfile } from "../TopicProfile/TopicProfile";
+import { MemoizedTopicProfile } from "../TopicProfile/TopicProfile";
 import "./Posts.scss";
 import { Button, Typography } from "@mui/material";
 import { FC } from "react";
@@ -42,7 +42,7 @@ export const Posts: FC = () => {
             <div className="posts">
               {data &&
                 data.map((el) => (
-                  <TopicProfile
+                  <MemoizedTopicProfile
                     key={el.title}
                     topicName={el.title}
                     discription={el.text}

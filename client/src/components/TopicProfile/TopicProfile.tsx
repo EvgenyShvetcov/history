@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import "./TopicProfile.scss";
 import { Link } from "react-router-dom";
 
@@ -23,3 +23,5 @@ export const TopicProfile: FC<Props> = ({
     </Link>
   );
 };
+
+export const MemoizedTopicProfile = React.memo(TopicProfile);
