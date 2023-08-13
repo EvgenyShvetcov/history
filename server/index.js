@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 mongoose
-  .connect("mongodb://localhost:27017/test", {
+  .connect("mongodb://127.0.0.1/test", {
     useNewUrlParser: true,
   })
   .then(() => console.log("DB ok"))
