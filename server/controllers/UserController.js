@@ -79,3 +79,21 @@ export const getUser = async (req, res) => {
     });
   }
 };
+
+export const getAllUsers = async (req, res) => {
+  try {
+    const user = await UserModel.find();
+    console.log(user);
+    if (!user) {
+      return res.status(404).json({
+        message: "Пользователи не найдены.",
+      });
+    }
+
+    res.json(user);
+  } catch (err) {
+    return res.status(500).json({
+      message: "Нет доступа.",
+    });
+  }
+};

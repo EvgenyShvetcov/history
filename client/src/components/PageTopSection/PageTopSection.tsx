@@ -5,7 +5,7 @@ import { ArrowBack } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 
 interface Props {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClickBack: () => void;
   title: string;
 }

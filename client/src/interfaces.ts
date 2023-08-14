@@ -20,6 +20,7 @@ export interface UserState {
   updatedAt: string;
   passwordHash?: string;
   avatarUrl?: string;
+  isAdmin?: boolean;
 }
 
 export interface User {

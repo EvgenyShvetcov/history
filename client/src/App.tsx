@@ -14,6 +14,9 @@ import { getAuthSlice } from "./store/redux/auth";
 import { PostCard } from "./components/PostCard/PostCard";
 import { AddPost } from "./components/AddPost/AddPost";
 import { UpdatePost } from "./components/UpdatePost/UpdatePost";
+import { MyProfile } from "./components/MyProfile/MyProfile";
+import { AddChapter } from "./components/AddChapter/AddChapter";
+import { AdminPage } from "./components/AdminPage/AdminPage";
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -47,6 +50,9 @@ export const App = () => {
         <Route path={ROUTES.card} element={<PostCard />} />
         <Route path={ROUTES.addPost} element={<AddPost />} />
         <Route path={ROUTES.updatePost} element={<UpdatePost />} />
+        <Route path={ROUTES.MyProfile} element={<MyProfile />} />
+        <Route path={ROUTES.addChapter} element={<AddChapter />} />
+        <Route path={ROUTES.AdminPage} element={<AdminPage />} />
       </Routes>
     </div>
   );

@@ -22,7 +22,7 @@ export const allApi = createApi({
     },
   }),
 
-  tagTypes: ["auth", "posts"],
+  tagTypes: ["auth", "posts", "chapters"],
   endpoints: (build) => ({
     //Эндпоинты с аунтификацией и юзером
     fetchLogin: build.mutation<UserState, UserLogin>({
@@ -48,13 +48,28 @@ export const allApi = createApi({
       }),
       providesTags: ["auth"],
     }),
+    fetchAllUsers: build.query<UserState[], string>({
+      query: () => ({
+        url: "/users",
+        method: "GET",
+      }),
+      providesTags: ["auth"],
+    }),
     //Разделы с главами
     fetchAllChapters: build.query<ChapterState[], string>({
       query: () => ({
         url: "/subjects",
         method: "GET",
-        params: { _limit: 5 },
       }),
+      providesTags: ["chapters"],
+    }),
+    postChapter: build.mutation<ChapterState, Partial<ChapterState>>({
+      query: (state) => ({
+        url: "/subjects",
+        method: "POST",
+        body: state,
+      }),
+      invalidatesTags: ["chapters"],
     }),
     //Разделы с постами
     fetchOnePost: build.query<PostState, string>({

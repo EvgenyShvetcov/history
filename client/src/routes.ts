@@ -9,4 +9,7 @@ export const ROUTES = {
   account: "/account",
   addPost: "/addPost/:topic",
   updatePost: "/updatePost/:id",
+  MyProfile: "/MyProfile",
+  AdminPage: "/AdminPage",
+  addChapter: "/addChapter",
 };
