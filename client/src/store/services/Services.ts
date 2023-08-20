@@ -120,5 +120,19 @@ export const allApi = createApi({
       }),
       invalidatesTags: ["posts"],
     }),
+    uploadFile: build.mutation({
+      query: (file) => {
+        const body = new FormData();
+        body.append("Content-Type", file.type);
+        body.append("image", file);
+
+        return {
+          url: `/upload`,
+          method: "POST",
+          body,
+        };
+      },
+      invalidatesTags: ["posts"],
+    }),
   }),
 });

@@ -81,6 +81,10 @@ export const PostCard: FC = () => {
             {error && "Ошибка загрузки"}
             <div className="post">
               <div className="text">{data?.text}</div>
+              <img
+                alt="uploaded"
+                src={`http://localhost:3000${data?.imageUrl}`}
+              />
               <div className="additionalInfo">
                 <div>{"Статья пользователя " + data?.user.fullName}</div>
                 <div>{"Количество просмотров: " + data?.viewsCount}</div>
