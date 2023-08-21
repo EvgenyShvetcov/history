@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { User, fetchDataUser } from "../../../interfaces";
+import { User, fetchData } from "../../../interfaces";
 
-const initialState: fetchDataUser<User> = {
+const initialState: fetchData<User> = {
   data: { user: null, isAuthenticated: false },
 };
 

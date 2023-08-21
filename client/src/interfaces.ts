@@ -64,9 +64,5 @@ export interface PostComment {
 }
 
 export interface fetchData<Item> {
-  data: Item[];
-}
-
-export interface fetchDataUser<Item> {
-  data: Item;
+  data: Item[] | Item;
 }
