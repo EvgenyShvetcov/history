@@ -63,6 +63,6 @@ export interface PostComment {
   date: string;
 }
 
-export interface fetchData<Item> {
-  data: Item[] | Item;
+export interface fetchDataUser<Item> {
+  data: Item;
 }

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { PageTopSection } from "../PageTopSection/PageTopSection";
+import { UserState } from "../../interfaces";
 
 export const AdminPage: FC = () => {
   // const param1 = window.location.pathname.replace(/[/]subjects\s?[/]/, "");
@@ -25,7 +26,7 @@ export const AdminPage: FC = () => {
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
             <div className="myprofile">
-              {data && data.map((el) => <div>{el.fullName}</div>)}
+              {data && data.map((el: UserState) => <div>{el.fullName}</div>)}
             </div>
           </div>
         }

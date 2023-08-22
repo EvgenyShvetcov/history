@@ -14,12 +14,9 @@ export const PostCard: FC = () => {
   const param1 = window.location.pathname.replace(/[/]post\s?[/]/, "");
   const { data, error, isLoading } = allApi.useFetchOnePostQuery(param1);
   const [deletePost, fetchData] = allApi.useFetchDeletePostMutation();
-  const [createComment, commentFetchData] =
-    allApi.useFetchCreateCommentMutation();
   const navigate = useNavigate();
   const userData = useSelector((state: RootState) => state.auth.data);
   const [active, setActive] = useState<boolean>(false);
-  const [currentComment, setCurrentComment] = useState<string>("");
 
   return (
     <div>

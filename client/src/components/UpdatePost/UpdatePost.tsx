@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from "react";
+import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import "./UpdatePost.scss";
@@ -17,6 +17,10 @@ export const UpdatePost: FC = () => {
   const [textValue, setTextValue] = useState<string>(data?.text || "");
   const [titleValue, setTitleValue] = useState<string>(data?.title || "");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchData.isSuccess && navigate(`/post/${param1}`);
+  }, [fetchData]);
 
   const options = useMemo(
     () => ({
@@ -71,6 +75,9 @@ export const UpdatePost: FC = () => {
               />
             </div>
             <div className="bottomButtons">
+              <Button onClick={() => navigate(-1)} size="large">
+                Отмена
+              </Button>
               <Button
                 size="large"
                 variant="contained"
@@ -79,13 +86,9 @@ export const UpdatePost: FC = () => {
                     state: { text: textValue, title: titleValue },
                     topicId: param1,
                   });
-                  fetchData && navigate(-1);
                 }}
               >
                 Изменить
-              </Button>
-              <Button onClick={() => navigate(-1)} size="large">
-                Отмена
               </Button>
             </div>
           </div>
