@@ -2,7 +2,7 @@
 
 To start client cd client npm start
 
-to start server cd server npm run dev / npm start
+to start server cd server  npm start
 
 MVP of the project
 
