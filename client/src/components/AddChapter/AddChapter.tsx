@@ -1,7 +1,7 @@
 import { FC, useCallback, useMemo, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./AddChapter.scss";
+import style from "./AddChapter.module.scss";
 import { Button, TextField, Typography } from "@mui/material";
 
 import SimpleMDE from "react-simplemde-editor";
@@ -36,12 +36,12 @@ export const AddChapter: FC = () => {
       <DefaultLayout
         children={
           <div>
-            <div className="topPart">
-              <div className="topLeftPart">
-                <div className="IconBack">
+            <div className={style.topPart}>
+              <div className={style.topLeftPart}>
+                <div className={style.IconBack}>
                   <ArrowBack
                     onClick={() => navigate("/subjects")}
-                    className="IconBack"
+                    className={style.IconBack}
                   />
                 </div>
                 <Typography variant="h3">Добавление раздела</Typography>
@@ -49,10 +49,10 @@ export const AddChapter: FC = () => {
             </div>
             {/* {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"} */}
-            <div className="post">
-              <div className="postTitle">
+            <div className={style.post}>
+              <div className={style.postTitle}>
                 <TextField
-                  className="postTitleinput"
+                  className={style.postTitleinput}
                   variant="standard"
                   placeholder="Заголовок раздела..."
                   fullWidth
@@ -62,13 +62,13 @@ export const AddChapter: FC = () => {
                 />
               </div>
               <SimpleMDE
-                className="postTextEditor"
+                className={style.postTextEditor}
                 value={textValue}
                 onChange={onChange}
                 options={options}
               />
             </div>
-            <div className="bottomButtons">
+            <div className={style.bottomButtons}>
               <Button onClick={() => navigate(`/subjects`)} size="large">
                 Отмена
               </Button>

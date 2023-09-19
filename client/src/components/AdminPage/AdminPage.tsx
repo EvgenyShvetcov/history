@@ -1,6 +1,6 @@
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./AdminPage.scss";
+import style from "./AdminPage.module.scss";
 import { FC } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
@@ -25,7 +25,7 @@ export const AdminPage: FC = () => {
             />
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
-            <div className="myprofile">
+            <div className={style.myprofile}>
               {data && data.map((el: UserState) => <div>{el.fullName}</div>)}
             </div>
           </div>

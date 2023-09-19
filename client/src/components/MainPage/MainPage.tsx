@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./MainPage.scss";
+import style from "./MainPage.module.scss";
 import { FC } from "react";
 
 export const MainPage: FC = () => {
@@ -9,7 +9,7 @@ export const MainPage: FC = () => {
       children={
         <div>
           <Typography variant="h3">Заголовок</Typography>
-          <div className="discription">
+          <div className={style.discription}>
             Исто́рия (др.-греч. ἱστορία) — наука, исследующая прошлое, реальные
             факты и закономерности смены исторических событий, эволюцию общества
             и отношений внутри него, обусловленных человеческой деятельностью на

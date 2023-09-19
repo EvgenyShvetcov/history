@@ -1,4 +1,4 @@
-import "./App.scss";
+import style from "./App.module.scss";
 import { Routes, Route } from "react-router-dom";
 import { MainPage } from "./components/MainPage/MainPage";
 import { Subjects } from "./components/Subjects/Subjects";
@@ -39,7 +39,7 @@ export const App = () => {
         );
   }, [data, dispatch]);
   return (
-    <div className={"App"}>
+    <div className={style.App}>
       <Routes>
         <Route path={ROUTES.home} element={<MainPage />} />
         <Route path={ROUTES.subjects} element={<Subjects />} />

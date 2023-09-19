@@ -1,7 +1,7 @@
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import { MemoizedTopicProfile } from "../TopicProfile/TopicProfile";
-import "./MyProfile.scss";
+import style from "./MyProfile.module.scss";
 import { Button } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
@@ -22,7 +22,7 @@ export const MyProfile: FC = () => {
               onClickBack={() => navigate(-1)}
               title="Мой профиль"
             />
-            <div className="myprofile">
+            <div className={style.myprofile}>
               {userData && userData.user?.fullName}
             </div>
           </div>

@@ -1,4 +1,4 @@
-import "./Modal.scss";
+import style from "./Modal.module.scss";
 import { Dispatch, FC, SetStateAction } from "react";
 
 interface Props {
@@ -13,7 +13,7 @@ export const Modal: FC<Props> = ({ children, active, setActive }) => {
       className={active ? "modal active" : "modal"}
       onClick={() => setActive(false)}
     >
-      <div className="content" onClick={(e) => e.stopPropagation()}>
+      <div className={style.content} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>

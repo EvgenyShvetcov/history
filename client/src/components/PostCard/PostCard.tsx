@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./PostCard.scss";
+import style from "./PostCard.module.scss";
 import { Button } from "@mui/material";
 import { RootState } from "../../store";
 import { useSelector } from "react-redux";
@@ -31,7 +31,7 @@ export const PostCard: FC = () => {
                 <div>
                   <Button
                     onClick={() => setActive(false)}
-                    className="addButton"
+                    className={style.addButton}
                   >
                     Назад
                   </Button>
@@ -40,7 +40,7 @@ export const PostCard: FC = () => {
                       deletePost(param1);
                       navigate(-1);
                     }}
-                    className="sureDeleteButton"
+                    className={style.sureDeleteButton}
                   >
                     Удалить пост
                   </Button>
@@ -55,12 +55,12 @@ export const PostCard: FC = () => {
                       onClick={() =>
                         data?._id && navigate(`/updatePost/${data?._id}`)
                       }
-                      className="addButton"
+                      className={style.addButton}
                     >
                       Изменить пост
                     </Button>
                     <Button
-                      className="deleteButton"
+                      className={style.deleteButton}
                       onClick={() => setActive(true)}
                     >
                       Удалить пост
@@ -76,13 +76,13 @@ export const PostCard: FC = () => {
 
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
-            <div className="post">
-              <div className="text">{data?.text}</div>
+            <div className={style.post}>
+              <div className={style.text}>{data?.text}</div>
               <img
                 alt="uploaded"
                 src={`http://localhost:3000${data?.imageUrl}`}
               />
-              <div className="additionalInfo">
+              <div className={style.additionalInfo}>
                 <div>{"Статья пользователя " + data?.user.fullName}</div>
                 <div>{"Количество просмотров: " + data?.viewsCount}</div>
               </div>

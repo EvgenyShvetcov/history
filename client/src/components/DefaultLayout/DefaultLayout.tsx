@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { TopBar } from "../TopBar/TopBar";
-import "./DefaultLayout.scss";
+import style from "./DefaultLayout.module.scss";
 
 interface Props {
   children: React.ReactNode;
@@ -8,9 +8,9 @@ interface Props {
 
 export const DefaultLayout: FC<Props> = ({ children }) => {
   return (
-    <div className="layout">
+    <div className={style.layout}>
       <TopBar />
-      <div className="content">{children}</div>
+      <div className={style.content}>{children}</div>
     </div>
   );
 };

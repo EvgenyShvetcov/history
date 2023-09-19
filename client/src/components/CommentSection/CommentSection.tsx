@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import "./CommentSection.scss";
+import style from "./CommentSection.module.scss";
 import { PostState, UserState } from "../../interfaces";
 import { MemoizedCommentComponent } from "../CommentComponent/CommentComponent";
 import { Button, Input } from "@mui/material";
@@ -16,7 +16,7 @@ export const CommentSection: FC<Props> = ({ data, User }) => {
     allApi.useFetchCreateCommentMutation();
   const [currentComment, setCurrentComment] = useState<string>("");
   return (
-    <div className="comments">
+    <div className={style.comments}>
       {data && data.comments.length !== 0
         ? data.comments.map((el) => (
             <MemoizedCommentComponent
@@ -28,14 +28,14 @@ export const CommentSection: FC<Props> = ({ data, User }) => {
           ))
         : "Комментариев пока нет."}
       {User && (
-        <div className="addCommentSection">
+        <div className={style.addCommentSection}>
           <Input
             fullWidth
             value={currentComment}
             onChange={(e) => setCurrentComment(e.target.value)}
           />
           <Button
-            className="addButton"
+            className={style.addButton}
             onClick={() => {
               createComment({
                 text: currentComment,

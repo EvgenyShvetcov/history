@@ -1,6 +1,6 @@
 import { allApi } from "../../store/services/Services";
 import { useForm } from "react-hook-form";
-import "./Login.scss";
+import style from "./Login.module.scss";
 import { UserLogin } from "../../interfaces";
 import { useNavigate } from "react-router-dom";
 import { FC, useEffect } from "react";
@@ -44,14 +44,15 @@ export const Login: FC = () => {
   const onSubmit = (values: UserLogin) => {
     login(values);
   };
+
   return (
-    <div className="login">
-      <div className="IconLogin">
-        <ArrowBack onClick={() => navigate(-1)} className="IconLogin" />
+    <div className={style.login}>
+      <div className={style.IconLogin}>
+        <ArrowBack onClick={() => navigate(-1)} className={style.IconLogin} />
       </div>
-      <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+      <form className={style.loginForm} onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h3">Вход в аккаунт</Typography>
-        <div className="textField">
+        <div className={style.textField}>
           <TextField
             label="E-Mail"
             fullWidth
@@ -69,7 +70,7 @@ export const Login: FC = () => {
             })}
           />{" "}
         </div>{" "}
-        <div className="textField">
+        <div className={style.textField}>
           <TextField
             label="Пароль"
             fullWidth

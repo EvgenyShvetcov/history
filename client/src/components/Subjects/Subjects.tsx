@@ -1,6 +1,6 @@
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import { MemoizedTopicProfile } from "../TopicProfile/TopicProfile";
-import "./Subjects.scss";
+import style from "./Subjects.module.scss";
 import { allApi } from "../../store/services/Services";
 
 import { PageTopSection } from "../PageTopSection/PageTopSection";
@@ -21,12 +21,12 @@ export const Subjects: FC = () => {
     <div>
       <DefaultLayout
         children={
-          <div className="">
+          <div>
             <PageTopSection
               children={
                 userData.isAuthenticated ? (
                   <Button
-                    className="addButton"
+                    className={style.addButton}
                     onClick={() => navigate(`/addChapter`)}
                   >
                     Добавить раздел
@@ -40,7 +40,7 @@ export const Subjects: FC = () => {
             />
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
-            <div className="subjects">
+            <div className={style.subjects}>
               {data &&
                 data.map((el) => (
                   <MemoizedTopicProfile

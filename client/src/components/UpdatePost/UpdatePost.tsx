@@ -1,7 +1,7 @@
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./UpdatePost.scss";
+import style from "./UpdatePost.module.scss";
 import { Button, TextField, Typography } from "@mui/material";
 
 import SimpleMDE from "react-simplemde-editor";
@@ -42,12 +42,12 @@ export const UpdatePost: FC = () => {
       <DefaultLayout
         children={
           <div>
-            <div className="topPart">
-              <div className="topLeftPart">
-                <div className="IconBack">
+            <div className={style.topPart}>
+              <div className={style.topLeftPart}>
+                <div className={style.IconBack}>
                   <ArrowBack
                     onClick={() => navigate(-1)}
-                    className="IconBack"
+                    className={style.IconBack}
                   />
                 </div>
                 <Typography variant="h3">Изменение поста</Typography>
@@ -55,10 +55,10 @@ export const UpdatePost: FC = () => {
             </div>
             {/* {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"} */}
-            <div className="post">
-              <div className="postTitle">
+            <div className={style.post}>
+              <div className={style.postTitle}>
                 <TextField
-                  className="postTitleinput"
+                  className={style.postTitleinput}
                   variant="standard"
                   placeholder="Заголовок статьи..."
                   fullWidth
@@ -68,13 +68,13 @@ export const UpdatePost: FC = () => {
                 />
               </div>
               <SimpleMDE
-                className="postTextEditor"
+                className={style.postTextEditor}
                 value={textValue}
                 onChange={onChange}
                 options={options}
               />
             </div>
-            <div className="bottomButtons">
+            <div className={style.bottomButtons}>
               <Button onClick={() => navigate(-1)} size="large">
                 Отмена
               </Button>

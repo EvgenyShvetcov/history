@@ -31,9 +31,34 @@ module.exports = {
           },
         ],
       },
+      // {
+      //   test: [/\.scss$/, /\.css$/],
+      //   use: ["style-loader", "css-loader", "sass-loader"],
+      // },
       {
-        test: [/\.scss$/, /\.css$/],
-        use: ["style-loader", "css-loader", "sass-loader"],
+        test: /\.s?css$/,
+        oneOf: [
+          {
+            test: [/\.module\.s?css$/],
+            use: [
+              MiniCssExtractPlugin.loader,
+              {
+                loader: "css-loader",
+                options: { modules: true, sourceMap: isDevelopment },
+              },
+              {
+                loader: "sass-loader",
+                options: {
+                  implementation: require("sass"),
+                  sourceMap: true,
+                },
+              },
+            ],
+          },
+          {
+            use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+          },
+        ],
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

@@ -1,7 +1,7 @@
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
 import { MemoizedTopicProfile } from "../TopicProfile/TopicProfile";
-import "./Posts.scss";
+import style from "./Posts.module.scss";
 import { Button, Typography } from "@mui/material";
 import { FC } from "react";
 import { useSelector } from "react-redux";
@@ -25,7 +25,7 @@ export const Posts: FC = () => {
               children={
                 userData.isAuthenticated ? (
                   <Button
-                    className="addButton"
+                    className={style.addButton}
                     onClick={() => navigate(`/addPost/${param1}`)}
                   >
                     Добавить пост
@@ -39,7 +39,7 @@ export const Posts: FC = () => {
             />
             {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"}
-            <div className="posts">
+            <div className={style.posts}>
               {data &&
                 data.map((el) => (
                   <MemoizedTopicProfile

@@ -1,0 +1,14 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    external_links:
+      - mongo
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"

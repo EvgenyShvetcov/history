@@ -1,4 +1,4 @@
-import "./Logout.scss";
+import style from "./Logout.module.scss";
 import { useNavigate } from "react-router-dom";
 import { FC, useEffect } from "react";
 import { getAuthSlice } from "../../store/redux/auth";

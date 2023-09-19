@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import "./Registration.scss";
+import style from "./Registration.module.scss";
 import { useForm } from "react-hook-form";
 import { Button, TextField, Typography } from "@mui/material";
 import { allApi } from "../../store/services/Services";
@@ -44,13 +44,13 @@ export const Registration: FC = () => {
   };
 
   return (
-    <div className="registration">
-      <div className="IconLogin">
-        <ArrowBack onClick={() => navigate(-1)} className="IconLogin" />
+    <div className={style.registration}>
+      <div className={style.IconLogin}>
+        <ArrowBack onClick={() => navigate(-1)} className={style.IconLogin} />
       </div>
-      <form className="registrationForm" onSubmit={handleSubmit(onSubmit)}>
+      <form className={style.topLeftPart} onSubmit={handleSubmit(onSubmit)}>
         <Typography variant="h3">Регистрация</Typography>
-        <div className="textField">
+        <div className={style.textField}>
           <TextField
             label="Имя пользователя"
             fullWidth
@@ -60,7 +60,7 @@ export const Registration: FC = () => {
             })}
           />
         </div>{" "}
-        <div className="textField">
+        <div className={style.textField}>
           <TextField
             label="E-Mail"
             fullWidth
@@ -77,7 +77,7 @@ export const Registration: FC = () => {
             })}
           />{" "}
         </div>
-        <div className="textField">
+        <div className={style.textField}>
           <TextField
             label="Пароль"
             fullWidth

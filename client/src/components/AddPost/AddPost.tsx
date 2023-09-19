@@ -1,7 +1,7 @@
 import { FC, useCallback, useMemo, useRef, useState } from "react";
 import { allApi } from "../../store/services/Services";
 import { DefaultLayout } from "../DefaultLayout/DefaultLayout";
-import "./AddPost.scss";
+import style from "./AddPost.module.scss";
 import { Button, TextField } from "@mui/material";
 
 import SimpleMDE from "react-simplemde-editor";
@@ -64,8 +64,8 @@ export const AddPost: FC = () => {
 
             {/* {isLoading && "Идет загрузка..."}
             {error && "Ошибка загрузки"} */}
-            <div className="post">
-              <div className="postTitle">
+            <div className={style.post}>
+              <div className={style.postTitle}>
                 {fetchUploadData.data && (
                   <>
                     <img
@@ -79,7 +79,7 @@ export const AddPost: FC = () => {
                   </>
                 )}
                 <TextField
-                  className="postTitleinput"
+                  className={style.postTitleinput}
                   variant="standard"
                   placeholder="Заголовок статьи..."
                   fullWidth
@@ -89,13 +89,13 @@ export const AddPost: FC = () => {
                 />
               </div>
               <SimpleMDE
-                className="postTextEditor"
+                className={style.postTextEditor}
                 value={textValue}
                 onChange={onChange}
                 options={options}
               />
             </div>
-            <div className="bottomButtons">
+            <div className={style.bottomButtons}>
               <Button
                 onClick={() => navigate(`/subjects/${param1}`)}
                 size="large"

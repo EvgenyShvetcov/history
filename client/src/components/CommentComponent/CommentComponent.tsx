@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./CommentComponent.scss";
+import style from "./CommentComponent.module.scss";
 
 interface Props {
   User: string;
@@ -9,10 +9,10 @@ interface Props {
 
 export const CommentComponent: FC<Props> = ({ User, text, date }) => {
   return (
-    <div className="comment">
-      <div className="commentUserName">{User}</div>
-      <div className="commentText">{text}</div>
-      <div className="date">{date}</div>
+    <div className={style.comment}>
+      <div className={style.commentUserName}>{User}</div>
+      <div className={style.commentText}>{text}</div>
+      <div className={style.date}>{date}</div>
     </div>
   );
 };

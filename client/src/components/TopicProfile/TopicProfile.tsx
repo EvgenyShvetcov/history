@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./TopicProfile.scss";
+import style from "./TopicProfile.module.scss";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -15,10 +15,10 @@ export const TopicProfile: FC<Props> = ({
   childrenLink,
 }) => {
   return (
-    <Link to={childrenLink} className="link">
-      <div className="TopicProfile">
-        <div className="TopicName">{topicName}</div>
-        <div className="TopicDiscription">{discription}</div>
+    <Link to={childrenLink} className={style.link}>
+      <div className={style.TopicProfile}>
+        <div className={style.TopicName}>{topicName}</div>
+        <div className={style.TopicDiscription}>{discription}</div>
       </div>
     </Link>
   );
